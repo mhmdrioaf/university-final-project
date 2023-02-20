@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Storage Management</string>
+    <string name="email_placeholder">youremail@email.com</string>
+    <string name="email_label">e-mail</string>
+    <string name="password_placeholder">your password here</string>
+    <string name="password_label">password</string>
+
+    <string name="login_title">Login</string>
+    <string name="login_button_text">Login</string>
+    <string name="forget_password">Forgot your password? </string>
+    <string name="forget_password_click_here">Click here!</string>
+</resources>
