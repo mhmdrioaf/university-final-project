@@ -1,18 +1,24 @@
 package com.gudmal.storagemanagement.ui.screens.login
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.gudmal.storagemanagement.R
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.gudmal.storagemanagement.ui.components.buttons.PrimaryButton
 import com.gudmal.storagemanagement.ui.components.inputs.EmailInput
 import com.gudmal.storagemanagement.ui.components.inputs.PasswordInput
+import com.gudmal.storagemanagement.ui.screens.Screen
 
 @Composable
 fun TitleText(text: String, modifier: Modifier) {
@@ -20,7 +26,7 @@ fun TitleText(text: String, modifier: Modifier) {
 }
 
 @Composable
-fun MainLoginScreen(modifier: Modifier) {
+fun MainLoginScreen(modifier: Modifier, navController: NavController) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -28,6 +34,16 @@ fun MainLoginScreen(modifier: Modifier) {
         ,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
+
+        // company logo
+        Image(
+            painter = painterResource(id = R.drawable.gudmal_logo),
+            contentDescription = stringResource(id = R.string.image_company_logo_content_description),
+            colorFilter = ColorFilter.tint(colorResource(id = R.color.primary)),
+            alignment = Center,
+            modifier = Modifier.fillMaxWidth()
+        )
+
         // login screen title
         TitleText(
             text = stringResource(id = R.string.login_title),
@@ -67,6 +83,7 @@ fun MainLoginScreen(modifier: Modifier) {
                     .padding(vertical = 24.dp),
             ) {
                 /* TODO: Implement the firebase authentication */
+                navController.navigate(Screen.DashboardScreen.route)
             }
             Row {
                 Text(text = stringResource(id = R.string.forget_password) + " ")
