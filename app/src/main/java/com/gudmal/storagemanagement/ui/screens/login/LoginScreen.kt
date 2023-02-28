@@ -4,92 +4,86 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import com.gudmal.storagemanagement.R
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.gudmal.storagemanagement.ui.components.buttons.PrimaryButton
 import com.gudmal.storagemanagement.ui.components.inputs.EmailInput
 import com.gudmal.storagemanagement.ui.components.inputs.PasswordInput
-import com.gudmal.storagemanagement.ui.screens.Screen
+import com.gudmal.storagemanagement.R.drawable as AppImage
+import com.gudmal.storagemanagement.R.string as AppText
+import com.gudmal.storagemanagement.R.color as AppColor
+
 
 @Composable
-fun TitleText(text: String, modifier: Modifier) {
-    Text(text = text, modifier = modifier, fontSize = 34.sp)
+fun TitleText(text: String) {
+    Text(text = text, fontSize = 34.sp)
 }
 
 @Composable
-fun MainLoginScreen(modifier: Modifier, navController: NavController) {
+fun MainLoginScreen(
+    openAndPopUp: (String, String) -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel = hiltViewModel()
+) {
+
+    val uiState by viewModel.uiState
+
+    /* TODO: Add loading indicator when user pressed sign-in button. */
+
+    // screen content container
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
-        ,
-        verticalArrangement = Arrangement.SpaceEvenly
+            .padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(space = 64.dp, alignment = Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         // company logo
         Image(
-            painter = painterResource(id = R.drawable.gudmal_logo),
-            contentDescription = stringResource(id = R.string.image_company_logo_content_description),
-            colorFilter = ColorFilter.tint(colorResource(id = R.color.primary)),
-            alignment = Center,
-            modifier = Modifier.fillMaxWidth()
+            painter = painterResource(AppImage.gudmal_logo),
+            contentDescription = stringResource(AppText.image_company_logo_content_description),
+            colorFilter = ColorFilter.tint(colorResource(AppColor.primary))
         )
 
-        // login screen title
-        TitleText(
-            text = stringResource(id = R.string.login_title),
-            modifier = modifier.align(CenterHorizontally)
-        )
+        // screen title
+        TitleText(text = stringResource(AppText.login_title))
 
-        // text input sections
+        // textfield container
         Column(
             modifier = modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalAlignment = CenterHorizontally
-
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            // email input
             EmailInput(
-                modifier
-                    .align(CenterHorizontally)
-                    .fillMaxWidth()
-                    .padding(bottom = 4.dp)
+                value = uiState.email,
+                onNewValue = viewModel::onEmailChange,
+                modifier = Modifier
             )
+
+            // password input
             PasswordInput(
-                modifier
-                    .align(CenterHorizontally)
-                    .fillMaxWidth()
+                value = uiState.password,
+                onNewValue = viewModel::onPasswordChange,
+                modifier = Modifier
             )
         }
 
-        // button
-        Column(
-            modifier = modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            horizontalAlignment = CenterHorizontally
-        ) {
-            PrimaryButton(
-                text = stringResource(id = R.string.login_button_text),
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 24.dp),
-            ) {
-                /* TODO: Implement the firebase authentication */
-                navController.navigate(Screen.DashboardScreen.route)
-            }
-            Row {
-                Text(text = stringResource(id = R.string.forget_password) + " ")
-                Text(text = stringResource(id = R.string.forget_password_click_here), color = colorResource(
-                    id = R.color.primary))
-            }
-        }
+        // login button
+        PrimaryButton(text = stringResource(AppText.login_button_text), modifier = Modifier.fillMaxWidth().height(48.dp)) { viewModel.onSignInClick(openAndPopUp) }
+
+        /* TODO: Add forgot password button. */
+
+        /* TODO: Add sign-in anonymously option. */
     }
 }

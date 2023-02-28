@@ -25,7 +25,12 @@ fun PrimaryButton(
             contentColor = colorResource(id = R.color.onPrimary)
         ),
         modifier = modifier,
-        shape = RoundedCornerShape(25.dp)
+        shape = RoundedCornerShape(25.dp),
+        elevation = ButtonDefaults.elevation(
+            defaultElevation = 0.dp,
+            pressedElevation = 0.dp,
+            focusedElevation = 0.dp
+        )
     ) {
         Text(
             text = text,

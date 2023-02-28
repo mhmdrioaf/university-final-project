@@ -10,9 +10,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.StorageManagement"
+        android:name=".StorageManagementHiltApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".StorageManagementActivity"
             android:exported="true"
             android:theme="@style/Theme.StorageManagement">
             <intent-filter>

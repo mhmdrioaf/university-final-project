@@ -27,14 +27,13 @@ import com.gudmal.storagemanagement.R
 
 
 @Composable
-fun EmailInput(modifier: Modifier) {
+fun EmailInput(value: String, onNewValue: (String) -> Unit, modifier: Modifier = Modifier) {
 
     val customTextSelectionColors = TextSelectionColors(
         handleColor = colorResource(id = R.color.primary),
         backgroundColor = colorResource(id = R.color.primary).copy(alpha = 0.4f)
         )
 
-    var email by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
 
     Column {
@@ -50,8 +49,8 @@ fun EmailInput(modifier: Modifier) {
         // change the highlighted text color
         CompositionLocalProvider(LocalTextSelectionColors provides customTextSelectionColors) {
             TextField(
-                value = email,
-                onValueChange = { email = it },
+                value = value,
+                onValueChange = { onNewValue(it) },
                 modifier = modifier.fillMaxWidth(),
                 placeholder = { Text(text = stringResource(R.string.email_placeholder)) },
                 keyboardActions = KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Down) }),
@@ -69,8 +68,7 @@ fun EmailInput(modifier: Modifier) {
 }
 
 @Composable
-fun PasswordInput(modifier: Modifier) {
-    var password by rememberSaveable { mutableStateOf("") }
+fun PasswordInput(value: String, onNewValue: (String) -> Unit, modifier: Modifier = Modifier) {
     val focusManager = LocalFocusManager.current
     val customTextSelectionColors = TextSelectionColors(
         handleColor = colorResource(id = R.color.primary),
@@ -90,8 +88,8 @@ fun PasswordInput(modifier: Modifier) {
         // change the highlighted text color
         CompositionLocalProvider(LocalTextSelectionColors provides customTextSelectionColors) {
             TextField(
-                value = password,
-                onValueChange = { password = it },
+                value = value,
+                onValueChange = { onNewValue(it) },
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
@@ -101,7 +99,7 @@ fun PasswordInput(modifier: Modifier) {
                     backgroundColor = Color.Transparent,
                     cursorColor = colorResource(id = R.color.primary),
                     disabledLabelColor = colorResource(id = R.color.onSurfaceVariant),
-                    focusedIndicatorColor = colorResource(id = R.color.primary),
+                    focusedIndicatorColor = colorResource(id = R.color.primary)
                 )
             )
         }

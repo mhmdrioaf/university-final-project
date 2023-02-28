@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun DashboardScreen(navController: NavController) {
+fun DashboardScreen() {
 
     /* TODO: Create dashboard screen based on design. */
 

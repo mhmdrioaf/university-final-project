@@ -2,6 +2,9 @@
 <resources>
 
     <style name="Theme.StorageManagement" parent="android:Theme.Material.Light.NoActionBar">
+
+        <!-- TODO: Remove dark mode options. -->
+
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 </resources>
