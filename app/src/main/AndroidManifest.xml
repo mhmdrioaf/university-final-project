@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gudmal.storagemanagement"
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
@@ -10,9 +11,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.StorageManagement"
+        android:name=".StorageManagementHiltApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".StorageManagementActivity"
             android:exported="true"
             android:theme="@style/Theme.StorageManagement">
             <intent-filter>
@@ -20,6 +22,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
     </application>
 

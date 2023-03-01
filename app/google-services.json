@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243239577127",
+    "project_id": "si-gudmal-development",
+    "storage_bucket": "si-gudmal-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243239577127:android:cdd76a0063056e79ec9002",
+        "android_client_info": {
+          "package_name": "com.gudmal.storagemanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243239577127-pnlenu2rgobgm27sff3s5a2dki4b9f2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt90KTKZZDzm9xJ1g2b4VxUzQx6KYlxtc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243239577127-pnlenu2rgobgm27sff3s5a2dki4b9f2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
