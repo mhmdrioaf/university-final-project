@@ -12,10 +12,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.gudmal.storagemanagement.R
+import com.gudmal.storagemanagement.ui.theme.poppinsFamily
 
 @Composable
 fun PasswordField(
@@ -38,7 +40,8 @@ fun PasswordField(
                 .fillMaxWidth()
                 .padding(bottom = 4.dp, start = 16.dp),
             textAlign = TextAlign.Start,
-            color = colorResource(id = R.color.primary)
+            color = colorResource(id = R.color.primary),
+            fontFamily = poppinsFamily,
         )
 
         // change the highlighted text color
@@ -48,6 +51,7 @@ fun PasswordField(
                 onValueChange = { newValue ->
                     onPasswordValueChange(newValue)
                 },
+                textStyle = TextStyle.Default.copy(fontFamily = poppinsFamily),
                 visualTransformation = if (passwordIsVisible) {
                     VisualTransformation.None
                 } else {
@@ -70,7 +74,7 @@ fun PasswordField(
                         )
                     }
                 },
-                placeholder = { Text(text = stringResource(id = R.string.password_placeholder)) },
+                placeholder = { Text(text = stringResource(id = R.string.password_placeholder), fontFamily = poppinsFamily) },
                 singleLine = true,
                 modifier = modifier.fillMaxWidth(),
                 colors = TextFieldDefaults.textFieldColors(

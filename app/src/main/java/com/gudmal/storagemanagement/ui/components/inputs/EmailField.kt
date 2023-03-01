@@ -15,10 +15,12 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.gudmal.storagemanagement.R
+import com.gudmal.storagemanagement.ui.theme.poppinsFamily
 import kotlinx.coroutines.job
 
 @Composable
@@ -42,12 +44,14 @@ fun EmailField(
                 .fillMaxWidth()
                 .padding(bottom = 4.dp, start = 16.dp),
             textAlign = TextAlign.Start,
-            color = colorResource(id = R.color.primary)
+            color = colorResource(id = R.color.primary),
+            fontFamily = poppinsFamily
         )
 
         // change the highlighted text color
         CompositionLocalProvider(LocalTextSelectionColors provides customTextSelectionColors) {
             TextField(
+                textStyle = TextStyle.Default.copy(fontFamily = poppinsFamily),
                 value = email,
                 onValueChange = { newValue ->
                     onEmailValueChange(newValue)
@@ -55,13 +59,13 @@ fun EmailField(
                 modifier = modifier
                     .fillMaxWidth()
                     .focusRequester(focusRequester),
-                placeholder = { Text(text = stringResource(R.string.email_placeholder)) },
+                placeholder = { Text(text = stringResource(R.string.email_placeholder), fontFamily = poppinsFamily) },
                 singleLine = true,
                 colors = TextFieldDefaults.textFieldColors(
                     backgroundColor = Color.Transparent,
                     cursorColor = colorResource(id = R.color.primary),
                     disabledLabelColor = colorResource(id = R.color.onSurfaceVariant),
-                    focusedIndicatorColor = colorResource(id = R.color.primary)
+                    focusedIndicatorColor = colorResource(id = R.color.primary),
                 )
             )
         }

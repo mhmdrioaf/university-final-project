@@ -43,7 +43,8 @@ fun LoginContent(
             .fillMaxSize()
             .padding(16.dp)
         ,
-        verticalArrangement = Arrangement.spacedBy(56.dp)
+        verticalArrangement = Arrangement.spacedBy(space = 56.dp, alignment = Alignment.CenterVertically),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         // company logo
@@ -60,7 +61,7 @@ fun LoginContent(
         // login screen title
         TitleText(
             text = stringResource(id = R.string.login),
-            modifier = modifier.align(Alignment.CenterHorizontally)
+            modifier = modifier.align(Alignment.CenterHorizontally),
         )
 
         // text input sections
@@ -94,7 +95,7 @@ fun LoginContent(
         // button
         Column(
             modifier = modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             PrimaryButton(

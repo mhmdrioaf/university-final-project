@@ -12,6 +12,9 @@ private val DarkColorPalette = darkColors(
     secondary = Teal200
 )
 
+/* TODO: Translucent status bar */
+/* TODO: Implement system theme */
+
 private val LightColorPalette = lightColors(
     primary = Purple500,
     primaryVariant = Purple700,
