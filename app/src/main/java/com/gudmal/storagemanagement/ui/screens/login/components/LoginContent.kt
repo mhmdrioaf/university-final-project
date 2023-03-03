@@ -2,7 +2,8 @@ package com.gudmal.storagemanagement.ui.screens.login.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,13 +19,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.gudmal.storagemanagement.R
 import com.gudmal.storagemanagement.ui.components.buttons.PrimaryButton
-import com.gudmal.storagemanagement.ui.components.common.TitleText
+import com.gudmal.storagemanagement.ui.components.common.BasicText
 import com.gudmal.storagemanagement.ui.components.inputs.EmailField
 import com.gudmal.storagemanagement.ui.components.inputs.PasswordField
 
 @Composable
+@ExperimentalMaterial3Api
 @ExperimentalComposeUiApi
 fun LoginContent(
     login: (email: String, password: String) -> Unit,
@@ -59,9 +62,10 @@ fun LoginContent(
         )
 
         // login screen title
-        TitleText(
+        BasicText(
             text = stringResource(id = R.string.login),
             modifier = modifier.align(Alignment.CenterHorizontally),
+            fontSize = 34.sp
         )
 
         // text input sections

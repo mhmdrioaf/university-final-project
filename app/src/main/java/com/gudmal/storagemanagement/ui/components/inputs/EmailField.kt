@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -24,6 +25,7 @@ import com.gudmal.storagemanagement.ui.theme.poppinsFamily
 import kotlinx.coroutines.job
 
 @Composable
+@ExperimentalMaterial3Api
 fun EmailField(
     modifier: Modifier = Modifier,
     email: TextFieldValue,
@@ -62,7 +64,7 @@ fun EmailField(
                 placeholder = { Text(text = stringResource(R.string.email_placeholder), fontFamily = poppinsFamily) },
                 singleLine = true,
                 colors = TextFieldDefaults.textFieldColors(
-                    backgroundColor = Color.Transparent,
+                    containerColor = Color.Transparent,
                     cursorColor = colorResource(id = R.color.primary),
                     disabledLabelColor = colorResource(id = R.color.onSurfaceVariant),
                     focusedIndicatorColor = colorResource(id = R.color.primary),

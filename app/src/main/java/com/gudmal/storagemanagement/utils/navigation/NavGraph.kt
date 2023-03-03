@@ -3,6 +3,7 @@ package com.gudmal.storagemanagement.utils.navigation
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavHostController
@@ -14,6 +15,7 @@ import com.gudmal.storagemanagement.ui.screens.login.LoginScreen
 @Composable
 @ExperimentalAnimationApi
 @ExperimentalComposeUiApi
+@ExperimentalMaterial3Api
 fun NavGraph(
     navController: NavHostController
 ) {

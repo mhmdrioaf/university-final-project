@@ -2,6 +2,15 @@
     <!-- Common -->
     <string name="login">Login</string>
     <string name="app_name">Storage Management</string>
+    <string name="profit">Profit</string>
+    <string name="daily_growth">Daily growth</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="today">Today</string>
+    <string name="money_thousand">k</string>
+    <string name="percentage">%</string>
+    <string name="show_all">Show all</string>
+    <string name="dummy_name">Rio Ananta</string>
 
     <!-- Login Screen -->
     <string name="img_desc_company_logo">Gudmal Company Logo</string>
@@ -11,4 +20,11 @@
     <string name="password_label">password</string>
     <string name="forget_password">Forgot your password? </string>
     <string name="forget_password_click_here">Click here!</string>
+
+    <!-- Dashboard Screen -->
+    <string name="dashboard">Dashboard</string>
+    <string name="dashboard_subtitle">Our daily update</string>
+    <string name="newest_product">Newest Product</string>
+    <string name="newest_product_subtitle">Recently added products</string>
+
 </resources>

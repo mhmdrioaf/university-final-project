@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,6 +20,7 @@ import com.gudmal.storagemanagement.R
 import com.gudmal.storagemanagement.ui.theme.poppinsFamily
 
 @Composable
+@ExperimentalMaterial3Api
 fun PasswordField(
     modifier: Modifier,
     password: TextFieldValue,
@@ -78,7 +79,7 @@ fun PasswordField(
                 singleLine = true,
                 modifier = modifier.fillMaxWidth(),
                 colors = TextFieldDefaults.textFieldColors(
-                    backgroundColor = Color.Transparent,
+                    containerColor = Color.Transparent,
                     cursorColor = colorResource(id = R.color.primary),
                     disabledLabelColor = colorResource(id = R.color.onSurfaceVariant),
                     focusedIndicatorColor = colorResource(id = R.color.primary),

@@ -1,6 +1,6 @@
 package com.gudmal.storagemanagement.ui.theme
 
-import androidx.compose.material.Typography
+import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -15,7 +15,7 @@ val poppinsFamily = FontFamily(
     Font(R.font.poppins_bold, FontWeight.Bold),
 )
 val Typography = Typography(
-    body1 = TextStyle(
+    bodySmall = TextStyle(
         fontFamily = poppinsFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp

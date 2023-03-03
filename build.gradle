@@ -8,6 +8,7 @@ buildscript {
         firebase_bom_version = '31.1.1'
         activity_version = '1.6.1'
         fragment_version = '1.5.5'
+        m3_version = '1.0.1'
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'

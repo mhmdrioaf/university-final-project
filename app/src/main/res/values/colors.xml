@@ -9,8 +9,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary">#FF9D7564</color>
-    <color name="primaryVariant">#FFBD8E79</color>
+    <color name="primaryVariant">#85BD8E79</color>
     <color name="onPrimary">#FFF3F3F3</color>
+    <color name="onPrimaryVariant">#85F3F3F3</color>
     <color name="surface">#FFF3F3F3</color>
     <color name="onSurface">#FF232323</color>
     <color name="onSurfaceVariant">#BF232323</color>
